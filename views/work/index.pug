@@ -1,0 +1,231 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title  Work
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+    script(src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous")
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+    link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+    script(src="/js/jquery.serializejson.js")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@9")
+    link(rel='stylesheet' href='/styles/work.css')
+  body(style='background-image: url('+work.background+');')
+    header.nava
+      // <div class="container">
+      .row(style='margin: 0px;')
+        .col.acol1
+          a.btn.btn-info.btn-lg(href='#')
+            i.fas.fa-align-justify
+          img#icon(src='')
+          a.btn.btn-info.btn-lg(href='/home')
+            i.fas.fa-home
+        .col-sm-6.asearch.acol2(style='height: 100%;')
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2.ainput(type='search' placeholder='Search' aria-label='Search')
+            a.btn.btn-info.btn-lg.abutton(href='#')
+              | Search
+        .col.acol2
+          a(href='/users/view/')
+            img.avatar1(src="/"+user.avatar, alt='Avatar')
+          a.btn.btn-info.btn-lg.float-right(href='#')
+            i.fas.fa-bell
+    .row(style='margin: 0px;')
+      .col-sm-9(style='padding-right: 0')
+        ul.nav
+          li.nav-item
+            a#dropdown-work-type.btn.a-nav.dropdown-toggle(data-toggle='dropdown' href='#' title='Phân loại công việc')
+              span.selection Riêng tư
+            #dropdown-menu-work-type.dropdown-menu
+              a.dropdown-item(href='#') Riêng tư
+              a.dropdown-item(href='#') Công khai
+          li.nav-item
+            a#invite.btn.a-nav(href='#' title='Mời vào bảng') Mời
+            form#formInvite
+              div(style='padding: 10px;')
+                input#new-member.form-control(type='text' name='new-member' placeholder='Nhập email hoặc tên' style='margin: 5px 0;')
+                .row
+                  .col.text-center
+                    button.btn.btn-primary(type='submit' style='margin-top: 5px') Gửi lời mời
+      .col-sm-3(style='padding: 0')
+        ul.nav.justify-content-end
+          //- li.nav-item
+          //-   a.btn.a-nav(href='#' title='Lịch')
+          //-     i.far.fa-calendar-alt
+          //-     |  Lịch
+          li.nav-item
+            #rightMenu.w3-sidebar.w3-bar-block.w3-card.w3-animate-right(style='display:none;right:0; z-index: 5; width: 350px; border-radius: 5px;')
+              button.w3-bar-item.w3-button.w3-large(onclick='closeRightMenu()') Close ×
+              form(action='/work/changeBgWork/'+work.id,method='POST', enctype="multipart/form-data", style='margin: 10px')
+                p Đổi ảnh nền
+                .custom-file.mb-3
+                  input.custom-file-input(type='file' name='changeBgWork')
+                  label.custom-file-label(for='customFile') Chọn ảnh
+                button.btn.btn-primary(type='submit') Lưu thay đổi
+              hr
+              // link a chuyển đến trang profile
+              .leader
+                p Quản trị viên
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/lg.jpg' alt='avatar member 1')
+                  a.link-profile-member(href='/users/view/')  I am Leader
+              hr
+              p(style='margin: 10px') Danh sách thành viên
+              .member-list
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/avt1.png' alt='avatar member 1')
+                  a.link-profile-member(href='/users/view/')  Member Name 1
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/avt2.png' alt='avatar member 2')
+                  a.link-profile-member(href='/users/view/')  Member Name 2
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/avt3.png' alt='avatar member 3')
+                  a.link-profile-member(href='/users/view/')  Member Name 3
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/card1.jpg' alt='avatar member 3')
+                  a.link-profile-member(href='/users/view/')  Member Name 4
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/card2.jpg' alt='avatar member 3')
+                  a.link-profile-member(href='/users/view/')  Member Name 5
+                .a-member
+                  img.rounded-circle.avatar-member(src='/img/card3.jpg' alt='avatar member 3')
+                  a.link-profile-member(href='/users/view/')  Member Name 6
+            button.btn.btn-menu.a-nav(onclick='openRightMenu()' title='Hiện Menu') ☰ Menu
+    .work-list
+      - i = -1
+      while (i<list.length-1)
+        - i++
+        .list-item
+          .list-name.sticky-top
+            form.deleteList(action='/card/deleteList/'+list[i].id , method='GET')
+              span.spanToInput2=list[i].name
+              button.btn.float-right.delete-list(title='Xóa List này')
+                i.material-icons 
+          .list-card(id="add-card"+list[i].id)
+            each card in cards
+              if list[i].id==card.list_id
+                .card(style='width:auto;' id='card'+card.id)
+                  img.card-img-top(src=card.file, alt='Card image' style='width:100%')
+                  form.deleteCard(action='/card/deleteCard/'+card.id , method='GET')
+                    button.btn.float-right.btn-delete-card(title='Xóa Card này') X
+                    .card-body.card-body-center
+                      p.card-title(id='cardName'+card.id)=card.name
+                      a.stretched-link(href='/card' data-toggle="modal" data-target="#exampleModal"+card.id)
+
+                .modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' id='exampleModal'+card.id)
+                  .modal-dialog.modal-xl(role='document')
+                    .modal-content
+                      .modal-header
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                          span(aria-hidden='true') ×
+                      .modal-body
+                        .container(style='padding: 0')
+                          form(class='changeImg' action="/card/changeBgCard/"+card.id ,method='POST' enctype="multipart/form-data")
+                            .cover-img#cover-img(style="background-image: url("+card.file+')')
+                              img.update-avatar(style='border-style: double; border-color: #ebebe0; border-radius: 5px; ' src='/img/ca.png' title='Đổi ảnh bìa')
+                              input.img-upload(type='file' name='file' accept='.png, .jpg, .jpeg')
+                              button.saveCoverImg.btn.btn-primary.mt-2(type='submit' style='display: block') Lưu
+                        .container(style='margin-top: -5px')
+                          .card-name#card-name
+                            span.spanToInput3.span-cardname=card.name
+                          .row
+                            .col-sm-9
+                              // .show-deadline#show-deadline
+                              if card.deadline != undefined
+                                p
+                                  i.far.fa-calendar-times
+                                  |  Deadline
+                                p(style="color:#ff4d4d")= card.deadline
+                                // p.deadline-date#deadline-date
+                                // p.deadline-time#deadline-time
+                              form(action='/card/changeDescription/'+card.id , method='post')
+                                .form-group
+                                  label(for='description')
+                                    i.fas.fa-rainbow
+                                    |  Mô tả
+                                  textarea.description.form-control(rows='5' name='description')=card.description
+                                button.des.btn.btn-primary(type='submit' id='des'+card.id) Lưu
+                              hr
+                              form(action='/card/changeAttachments/'+card.id , method='post' ,enctype="multipart/form-data", style='margin-bottom: 30px')
+                                p
+                                  i.fas.fa-paperclip
+                                  if card.attachments != undefined
+                                    a(href=card.attachments, download='')  Tập đính kèm
+                                  else
+                                    |  Tập đính kèm
+                                .custom-file
+                                  input.customFile.custom-file-input(type='file' name='filename')
+                                  label.custom-file-label(for='customFile')
+                                    if card.attachments != undefined 
+                                      span=card.attachments
+                                    else 
+                                      | Chọn File
+                                  button.saveFile.btn.btn-primary.mt-2(type='submit') Lưu
+                              hr
+                              p
+                                i.fab.fa-rocketchat
+                                |  Bình luận
+                              .my-comment
+                                form.mb-3(action='' method='post')
+                                  textarea.myCmt.form-control(rows='2' placeholder='Viết bình luận...' name='myCmt')
+                                  button.cmt.btn.btn-primary(type='submit' id=card.id) Bình luận
+                              #test1
+                              .comment-list(id='comment'+card.id)
+                                each comment in comments
+                                  if comment.card_id == card.id
+                                    .a-comment
+                                      img.rounded-circle.avatar-comment(src=comment.avatar alt='my avatar')
+                                      a.link-profile-member(href='../Profile/profileOther.html')=comment.name
+                                      .comment.container
+                                        p=comment.content
+
+                                //- .a-comment
+                                //-   img.rounded-circle(src='/img/avt1.png' alt='my avatar' style='height: 40px')
+                                //-   a.link-profile-member(href='../Profile/profileOther.html')  Member Name 1
+                                //-   .comment.container
+                                //-     p Đây là comment của member 1
+                                //- .a-comment
+                                //-   img.rounded-circle(src='/img/avt2.png' alt='my avatar' style='height: 40px')
+                                //-   a.link-profile-member(href='../Profile/profileOther.html')  Member Name 2
+                                //-   .comment.container
+                                //-     p Đây là comment của member 2
+                                //- .a-comment
+                                //-   img.rounded-circle(src='/img/avt3.png' alt='my avatar' style='height: 40px')
+                                //-   a.link-profile-member(href='../Profile/profileOther.html')  Member Name 3
+                                //-   .comment.container
+                                //-     p Đây là comment của member 3
+                            .col-sm-3
+                              button.deadline#deadline.btn.btn-primary.btn-col-2
+                                i.far.fa-clock
+                                |  Thêm deadline
+                              form(action='/card/addDeadline/'+card.id , method='post')
+                                .formDeadline#formDeadline.form-group
+                                  input.form-control.mt-2(type='date',name='date')
+                                  input.form-control.mt-2(type='time',name='time')
+                                  button.saveDeadline.btn.btn-primary.mt-2(type='submit') Lưu
+
+
+          .add-card
+            form.form-add-card(action="/card/newCard",method="POST",  enctype="multipart/form-data")
+              input.new-card.form-control(type='text' name='new-card' placeholder='Thêm thẻ mới'  autocomplete="off" value="")
+              input.form-control(type='text' name='description' placeholder='Mô tả'  style="display: none"  autocomplete="off")
+              input.form-control-file(type='file' name='file'   style="display: none")
+              button.btn.btn-primary.btn-add-card(type='submit' id=list[i].id) Thêm
+      .add-new-list
+        //- form(action='')
+        input#new-list.form-control(type='text' name='new-list' placeholder='Thêm danh sách mới' style='width:250px')
+        button.btn.btn-primary.addlist(style='margin: 3px 0;') Thêm danh sách
+        //- form.needs-validation(novalidate='')
+        //-   input#new-list.form-control(type='text', name='new-list', placeholder='Thêm danh sách mới', style='width:250px', required='')
+        //-   button.btn.btn-primary.addlist(type='submit', style='margin: 3px 0;') Thêm danh sách
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous")
+    script(src='/js/work.js')
+    script(src='/js/card.js')
+    

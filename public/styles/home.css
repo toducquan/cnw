@@ -1,0 +1,388 @@
+/* div {
+    padding: 3px;
+} */
+a:not([href]) {
+    color: white;
+    text-decoration: none;
+}
+
+a:not([href]):hover {
+    color: white;
+    text-decoration: none;
+}
+
+.nava {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+#icon {
+    width: 114px;
+}
+
+.acol1 .btn{
+    background-color: #30619f;
+    border-color: #30619f;
+}
+
+.acol1 {
+    background-color: #30619f;
+}
+
+.acol2 {
+    background-color: #346cb0;
+}
+
+.acol2 .btn{
+    background-color: #346cb0;
+    border-color: #346cb0;
+}
+
+.btn:hover {
+    background-color: #4d7eba;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: 80%;
+    vertical-align: middle;
+}
+
+.avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+}
+
+.btn .btn-info .btn-lg .abutton {
+    margin: 0 auto;
+}
+
+.dropdown-toggle::after {
+    display: none;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+/* thông báo */
+.dropdown-noti{
+    padding: 0; 
+    margin: 0;
+    max-height: 400px;
+    width: 400px;
+    overflow-y: scroll;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown-noti::-webkit-scrollbar {
+    border-radius: 6px;
+    width: 8px;
+    /* background-color: #e6e6e6; */
+}
+
+.dropdown-noti::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #999999;
+}
+
+.notiInfo{
+    border: 1px solid #ccc;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.notiInfo:hover{
+    background: rgba(0,0,0,0.3);
+}
+
+.noti-content{
+    padding: 0 5px;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* deadlineInfo */
+.dropdown-deadline{
+    padding: 0; 
+    margin: 0; 
+    margin-left: 8px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.dropdown-deadline::-webkit-scrollbar {
+    border-radius: 6px;
+    width: 8px;
+    /* background-color: #e6e6e6; */
+}
+
+.dropdown-deadline::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #999999;
+}
+
+.deadlineInfo{
+    border: 1px solid #ccc;
+    padding: 0;
+}
+
+.deadlineInfo:hover{
+    background: rgba(0,0,0,0.3);
+}
+
+.time-deadline{
+    margin-bottom: 3px;
+}
+
+.nameDeadline{
+    white-space: pre-line;
+    /* width: 290px; */
+    padding: 0 5px;
+    margin: 0;
+}
+
+.btn-delete-work{
+    position: absolute;
+    top: 15px;
+    right: -15px;
+    height: 32px;
+    width: 32px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #e6e6e6;
+    color: black;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    opacity: 0.8;
+    z-index: 5;
+}
+
+.avatar1 {
+    margin-top: 2px;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    float: right;
+}
+
+.app-aside {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    max-width: 21rem;
+    /* transform: translate3d(-100%,0,0); */
+    backface-visibility: hidden;
+    transition: transform .2s ease-in-out;
+}
+
+.aside-menu {
+    position: relative;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.aside-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+.aside {
+    top: 3.5rem;
+    width: 21rem;
+    z-index: 6;
+}
+}
+
+.acol3 .btn{
+    background-color: #e4f0f6;
+    border-color: #e4f0f6;
+    width: 100%;
+}
+
+.acol3 a {
+    color: #30619f;
+    font-weight: bold;
+}
+
+.acol3 a:hover {
+    color: #30619f;
+}
+
+.acol3 a:focus {
+    color: #30619f;
+    background-color: #e4f0f6;
+}
+
+.acol3 {
+    background-color: #e4f0f6;
+}
+
+.acol4 .btn{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    width: 90%;
+}
+
+.acol4 a {
+    color: black;
+    font-weight: bold;
+}
+
+.acol4 a:hover {
+    color: black;
+    background-color: #dbdfe4;
+}
+
+.acol4 a:focus {
+    color: black;
+    background-color: #ffffff;
+}
+
+.acol4 {
+    background-color: #ffffff;
+}
+
+ul {
+    padding: 0px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.aside-menu a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+.app-main {
+    padding-top: 4rem;
+    padding-left: 22rem;
+}
+}
+
+.wrapper {
+    margin: 5px;
+} 
+
+.board-title {
+    margin: 10px;
+    display: block;
+    border-radius: 3px;
+    width: 90%;
+    height: 80px;
+    transform: translate(0);
+    z-index: 4;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: cover;
+}
+
+.atitle {
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    width: max-content;
+}
+
+#register {
+    background-color: white;
+    color: #30619f;
+}
+
+#register:hover {
+    background-color: #4d7eba;
+    color: #ffffff;
+}
+
+.fill {
+    height: 41px;
+}
+
+/* welcome */
+.masthead {
+    background: linear-gradient(to bottom, rgb(50, 104, 169) 0%, rgba(166, 166, 169, 0.8) 100%), url(/img/function1picture.jpg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 650px;
+}
+
+.divider {
+    max-width: 22.25rem;
+    border-width: 0.2rem;
+    border-color: #efefef;
+}
+
+.font {
+    color: #ffff;
+    font-size: 1.5625rem;
+}
+
+.font-1 {
+    color: #172b4d;
+    font-size: 1.5625rem;
+}
+
+#function2picture {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+}
+
+.center-me {
+    display: flex;
+    justify-content: center;
+}
+
+#buttonHl {
+    background-color: #346cb0;
+    border-color: #6688aa;
+    font-size: 26px;
+    border-radius: 50px;
+}
+
+#buttonHl:hover {
+    background-color: #4d7eba;
+}
+
+.masthead-end {
+    background: linear-gradient(to bottom, rgb(50, 104, 169) 0%, rgba(166, 166, 169, 0.8) 100%), url(/img/function4picture.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 650px;
+}

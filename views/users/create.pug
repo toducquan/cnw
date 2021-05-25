@@ -1,0 +1,46 @@
+doctype html
+html(lang='vi')
+	head
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+		link(href='/styles/auth.css' rel='stylesheet')
+		title
+	body
+		.row
+			.col-sm-4
+				img(style='margin-top: 52%;width: 100%;' src='https://image.freepik.com/free-vector/organizing-projects-concept-illustration_114360-542.jpg')
+			.col-sm-4
+				img(style=' margin:30px 30% 40px 30%;' src='/img/lg.jpg',alt='logo')
+				.login
+					h6(style='text-align: center; margin-bottom: 30px;') Register
+					if errors
+						each error in errors
+							.alert.alert-danger= error
+					form(action="/users/create",method="POST",enctype="multipart/form-data")
+						.form-group
+							input.form-control(name="name", type="text",placeholder='Enter Name' value=values ? values.name : "")
+						.form-group
+							input.form-control(type='email',name="email", value=values ? values.email : "", placeholder='Enter email')
+						.form-group
+							input.form-control(type='password',name="password", value=values ? values.password : "", placeholder='Password')
+						.form-group
+							label(for="avatar") Avatar
+							input.form-control-file(name="avatar", type="file")
+						p(style='font-size: 12px;color: #5E6C84;')
+							| Bằng cách đăng kí, bạn xác nhận bạn đã đọc và chấp nhận 
+							a(href='') Điều khoản dịch vụ 
+							| và 
+							a(href='') Chính sách riêng tư 
+							| của chúng tôi.
+						button.btn.submit_login(type='submit')
+							b Register
+						hr
+						table(style='display: flex;justify-content: center;')
+							tr
+								td
+									a(href='../auth/login') Bạn đã có tài khoản?
+									span &ensp;
+								td
+									a(href='../auth/login') Đăng nhập
+			.col-sm-4
+				img(style='width: 100%;' src='https://image.freepik.com/free-vector/schedule-concept-illustration_114360-1531.jpg')

@@ -1,0 +1,36 @@
+doctype html
+html(lang='vi')
+	head
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+		link(href='/styles/auth.css' rel='stylesheet')
+		title
+	body
+		.row
+			.col-sm-4
+				img.left(src='https://image.freepik.com/free-vector/organizing-projects-concept-illustration_114360-542.jpg')
+			.col-sm-4
+				.logo
+					
+				.login
+					h6(style='text-align: center; margin-bottom: 30px;') Login
+					if errors
+						each error in errors
+							.alert.alert-danger= error
+					form(action="/auth/login",method="POST")
+						.form-group
+							input.form-control(type='email',name="email", value=values ? values.email : "", placeholder='Enter email')
+						.form-group
+							input.form-control(type='password',name="password", value=values ? values.password : "", placeholder='Password')
+						button.btn.submit_login(type='submit')
+							b Login
+						hr
+						table(style='display: flex;justify-content: center;')
+							tr
+								td
+									a(href='../users/create') Không thể đăng nhập?
+									span &ensp;
+								td
+									a(href='../users/create') Đăng kí tài khoản
+			.col-sm-4
+				img.right( src='https://image.freepik.com/free-vector/schedule-concept-illustration_114360-1531.jpg')

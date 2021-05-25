@@ -1,0 +1,83 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title  Card 
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdn.jsdelivr.net/npm/sweetalert2@9')
+    link(rel='stylesheet', href='/styles/card.css')
+  body
+    .container(style='padding: 0')
+      #cover-img
+        img#update-avatar(style='border-style: double; border-color: #ebebe0; border-radius: 5px; ', src='/img/ca.png', title='Đổi ảnh bìa')
+        input#img-upload(type='file', accept='.png, .jpg, .jpeg')
+        button#saveCoverImg.btn.btn-primary.mt-2(type='submit', style='display: block;') Lưu
+    .container(style='margin-top: -5px')
+      #card-name
+        span.spanToInput.span-cardname Tên công việc
+      .row
+        .col-sm-9
+          #show-deadline
+            p
+              i.far.fa-calendar-times
+              |  Deadline
+            p#deadline-date
+            p#deadline-time
+          form(action='', method='post')
+            .form-group
+              label(for='description-card')
+                i.fas.fa-rainbow
+                |  Mô tả
+              textarea#description-card.form-control(rows='5', name='description-card')
+            button.btn.btn-primary(type='submit') Lưu
+          hr
+          form(action='', method='post', style='margin-bottom: 30px')
+            p
+              i.fas.fa-paperclip
+              |  Tập đính kèm
+            .custom-file
+              input#customFile.custom-file-input(type='file', name='filename')
+              label.custom-file-label(for='customFile') Chọn file
+              button#saveFile.btn.btn-primary.mt-2(type='submit') Lưu
+          hr
+          p
+            i.fab.fa-rocketchat
+            |  Bình luận
+          .my-comment
+            form.mb-3(action='', method='post')
+              .form-group
+                textarea#myCmt.form-control(rows='2', placeholder='Viết bình luận...')
+              button#cmt.btn.btn-primary(type='submit') Bình luận
+          .comment-list
+            .a-comment
+              img.rounded-circle(src='/img/avt1.png', alt='my avatar', style='height: 40px')
+              a.link-profile-member(href='../Profile/profileOther.html')  Member Name 1
+              .comment.container
+                p Đây là comment của member 1
+            .a-comment
+              img.rounded-circle(src='/img/avt2.png', alt='my avatar', style='height: 40px')
+              a.link-profile-member(href='../Profile/profileOther.html')  Member Name 2
+              .comment.container
+                p Đây là comment của member 2
+            .a-comment
+              img.rounded-circle(src='/img/avt3.png', alt='my avatar', style='height: 40px')
+              a.link-profile-member(href='../Profile/profileOther.html')  Member Name 3
+              .comment.container
+                p Đây là comment của member 3
+        .col-sm-3
+          button#deadline.btn.btn-primary.btn-col-2
+            i.far.fa-clock
+            |  Thêm deadline
+          #formDeadline.form-group
+            input.form-control.mt-2(type='date')
+            input.form-control.mt-2(type='time')
+            button#saveDeadline.btn.btn-primary.mt-2(type='submit') Lưu
+    script(src='/js/card.js')
+      

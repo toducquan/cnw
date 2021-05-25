@@ -1,0 +1,77 @@
+doctype html
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    link(rel='shortcut icon' type='img')
+    link(rel='stylesheet', href='/styles/home.css')
+  body
+    header.nava
+      // <div class="container">
+      .row(style='margin: 0px;')
+        .col.acol2
+          a.btn.btn-info.btn-lg(href='#', style='\
+          border: 0px;\
+          padding: 0px;\
+          ')
+            img#icon(src='')
+        .col-6.asearch.acol2(style='height: 100%;')
+          h1.fill
+        .col.acol2
+          a#register.btn.btn-info.btn-lg.abutton.float-right(href='../users/create')
+            | Đăng ký
+          a.btn.btn-info.btn-lg.abutton.float-right(href='../auth/login')
+            | Đăng nhập
+      .row
+    section.masthead
+      .container.h-100
+        .row.h-100.align-items-center.justify-content-center.text-center
+          .col-lg-10.align-self-end
+            h1.text-uppercase.text-white.font-weight-bold Sắp xếp và cải thiện hiệu suất công việc
+            hr.divider.my-4
+          .col-lg-8.align-self-baseline
+            p.mb-5.font
+              | 
+            a#buttonHl.btn.btn-primary.btn-xl(href='../home/') Sử dụng ngay
+    section#function2picture
+      .container
+        .row
+          .col-md-7.order-md-11.text-md-left
+            .content-center
+              h1.font-1
+                | Dễ dàng quản lý
+              p.font-1
+                | Chúng tôi luôn sẵn sàng hỗ trợ bạn trong việc quản lý và sắp xếp công việc.
+          .col-md-5.order-md-12
+            img(src='img/function2picture.jpg', alt='anh function thu 2', style='border-radius: 8px; width: 100%;')
+    section#function2picture
+      .container
+        .row
+          .col-md-5.order-md-11
+            img(src='img/function3picture.jpg', alt='anh function thu 2', style='border-radius: 8px; width: 100%;')
+          .col-md-7.order-md-12.text-md-left
+            .content-center
+              h1.font-1
+                | Không bỏ lỡ deadline
+              p.font-1
+                | Giải quyết mọi vấn đến teamwork, deadline với tính bảo mật cực kì cao
+    section.masthead-end
+      .container.h-100
+        .row.h-100.align-items-center.justify-content-center.text-center
+          .col-lg-10.align-self-end
+            h1.text-uppercase.text-white.font-weight-bold Bắt đầu lên kế hoạch từ hôm nay
+            hr.divider.my-4
+          .col-lg-8.align-self-baseline
+            p.mb-5.font
+              | 
+            a#buttonHl.btn.btn-primary.btn-xl(href='../home/') Bắt đầu - Miễn phí
+    footer
+      .center-me
+      .center-me
+        p © Nhóm 404 Not Found - Công nghệ web và dịch vụ trực tuyến

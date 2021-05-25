@@ -1,0 +1,241 @@
+doctype html
+html
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    link(rel='stylesheet' href='/styles/home.css')
+  body
+    header.nava
+      // <div class="container">
+      .row(style='margin: 0px;')
+        .col.acol1
+          a.btn.btn-info.btn-lg(href='#')
+            i.fas.fa-align-justify
+          img#icon(src='')
+          a.btn.btn-info.btn-lg(href='#')
+            i.fas.fa-home
+        .col-6.asearch.acol2(style='height: 100%;')
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2.ainput(type='search' placeholder='Search' aria-label='Search')
+            a.btn.btn-info.btn-lg.abutton(href='#')
+              | Search
+        .col.acol2
+          a(href='/users/view/')
+            img.avatar1(src="/"+user.avatar, alt='Avatar')
+          //- a.btn.btn-info.btn-lg.float-right(href='#')
+          //-   i.fas.fa-bell
+          .dropdown
+            a.btn.btn-info.btn-lg.float-right.dropdown-toggle(type='button' data-toggle='dropdown')
+              i.fas.fa-bell
+            .dropdown-menu.dropdown-noti
+              a.dropdown-item.notiInfo(href='#')
+                p.noti-content
+                  strong.link-member(href='#') Member mời 
+                  | đã thêm bạn vào bảng 
+                  strong.link-work(href='#') Công việc A
+              a.dropdown-item.notiInfo(href='#')
+                p.noti-content
+                  strong.link-member(href='#') NKT
+                  | đã thêm bạn vào bảng 
+                  strong.link-work(href='#') ABC
+              a.dropdown-item.notiInfo(href='#')
+                p.noti-content
+                  strong.link-member(href='#') NVT 
+                  | đã thêm bạn vào bảng 
+                  strong.link-work(href='#') Công việc Công nghệ Web và dịch vụ trực tuyến
+              a.dropdown-item.notiInfo(href='#')
+                p.noti-content
+                  strong.link-member(href='#') PLMT 
+                  | đã thêm bạn vào bảng 
+                  strong.link-work(href='#') Full-stack DV
+      .row
+    aside.aside.app-aside
+      .aside-content
+        header
+          div
+            // header
+        .aside-menu
+          ul
+            li
+              .acol3
+                a.btn.btn-info.btn-dark(href='#')
+                  i.fas.fa-table
+                  |                                 Bảng
+            li
+              //- .acol4
+              //-   a.btn.btn-info.btn-dark(href='#')
+              //-     i.fas.fa-bomb
+              //-     |                                 Deadline
+              //-   i.fas.fa-chevron-down
+              .acol4
+                .dropdown
+                  a.btn.btn-info.btn-dark.dropdown-toggle(type='button' data-toggle='dropdown' style='width:335px')
+                    i.fas.fa-bomb
+                    |                                 Deadline
+                  .dropdown-menu.dropdown-deadline
+                    a.dropdown-item.deadlineInfo(href='#')
+                      p.nameDeadline Làm bài tập lớn công nghệ web kì 20202
+                      span.badge.badge-primary.badge-pill.time-deadline 1 hours
+                    a.dropdown-item.deadlineInfo(href='#')
+                      p.nameDeadline Học online
+                      span.badge.badge-primary.badge-pill.time-deadline 2 hours
+                    a.dropdown-item.deadlineInfo(href='#')
+                      p.nameDeadline Xem lại bài
+                      span.badge.badge-primary.badge-pill.time-deadline 15 hours
+                    a.dropdown-item.deadlineInfo(href='#')
+                      p.nameDeadline Nộp project 2
+                      span.badge.badge-primary.badge-pill.time-deadline 1 hours
+                    a.dropdown-item.deadlineInfo(href='#')
+                      p.nameDeadline Thuyết trình phân tích TKHT
+                      span.badge.badge-primary.badge-pill.time-deadline 2 hours
+                    //- a.dropdown-item.deadlineInfo(href='#')
+                    //-   p.nameDeadline Nộp bài tập lớn công nghệ web demo lần 3 nhé ae!
+                    //-   span.badge.badge-primary.badge-pill.time-deadline 3 hours
+                    //- a.dropdown-item.deadlineInfo(href='#')
+                    //-   p.nameDeadline Nộp bài tập lớn công nghệ web demo lần 4 nhé ae!
+                    //-   span.badge.badge-primary.badge-pill.time-deadline 4 hours
+                    //- a.dropdown-item.deadlineInfo(href='#')
+                    //-   p.nameDeadline Nộp bài tập lớn công nghệ web demo lần 5 nhé ae!
+                    //-   span.badge.badge-primary.badge-pill.time-deadline 5 hours
+
+            //- ul
+            //-   ul.list-group
+            //-     a(href='#')
+            //-       li.list-group-item.d-flex.justify-content-between.align-items-center
+            //-         | Làm giao diện
+            //-         span.badge.badge-primary.badge-pill 1 hours
+            //-     a(href='#')
+            //-       li.list-group-item.d-flex.justify-content-between.align-items-center
+            //-         | Học online
+            //-         span.badge.badge-primary.badge-pill 2 hours
+            //-     a(href='#')
+            //-       li.list-group-item.d-flex.justify-content-between.align-items-center
+            //-         | Xem lại bài
+            //-         span.badge.badge-primary.badge-pill 15 hours
+            //-     a(href='#')
+            //-       li.list-group-item.d-flex.justify-content-between.align-items-center
+            //-         | Nộp bài tập lớn
+            //-         span.badge.badge-primary.badge-pill 20 hours
+        footer
+          div
+            // footer
+    main.app-main
+      .wrapper
+        .container
+          //- .row
+          //-   h4(style='color : #4d7eba;')
+          //-     i.far.fa-clock
+          //-     |   Đã xem gần đây
+          //- .row
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh5.jpg)')
+          //-       .atitle Kế hoạch tháng 5
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh3.png)')
+          //-       .atitle Kế hoạch tháng 3
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh4.jpg)')
+          //-       .atitle Kế hoạch tháng 4
+          .row
+            h4(style='color : #4d7eba;')
+              i.fas.fa-user
+              |   Bảng cá nhân
+          - var x=0
+
+        each work in works.length ? works : ['There are no values']
+          - x=x+1
+          if work.id!=undefined
+            if x%3 == 1
+              <div class="row">
+            if (x!=-1)
+              .col-sm-4
+                a.board-title(href='/work?id='+work.id style='background-image: url(/'+work.background+')')
+                  .atitle=work.name
+                  form.deleteWork(action='/work/deleteWork/'+work.id , method='GET')
+                    button.btn.float-right.btn-delete-work(title='Xóa Bảng này') X
+              if work==works[works.length-1]
+            if x%3 == 0
+              </div>
+        .col-sm-4
+          a.board-title(href='#' style='background-color: #c1c1c1' type='button' data-toggle='modal' data-target='#exampleModal')
+            .atitle Tạo bảng mới
+          //- .row
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh1.jpg)')
+          //-       .atitle Kế hoạch tháng 1
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh5.jpg)')
+          //-       .atitle Kế hoạch tháng 5
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh3.png)')
+          //-       .atitle Kế hoạch tháng 3
+          //- .row
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh4.jpg)')
+          //-       .atitle Kế hoạch tháng 4
+          //-   .col
+          //-     a.board-title(href='/work' style='background-image: url(/img/anh1.jpg)')
+          //-       .atitle Kế hoạch tháng 1
+          //-   .col
+          //-     a.board-title(href='#' style='background-color: #c1c1c1')
+          //-       .atitle Tạo bảng mới
+          //- button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal')
+          //-   | Launch demo modal
+          //- // Modal
+          #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title Thêm công việc
+                  button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                form.needs-validation(action="/work" method="POST" enctype="multipart/form-data" novalidate='')
+                  .modal-body
+                    .form-group
+                      label Tên công việc: 
+                      input.form-control(type='text' name='name' required='')
+                    .form-group
+                      label Thể loại: 
+                      select.form-control
+                        option Riêng tư
+                        option Công khai
+                    .form-group
+                      label Ảnh nền: 
+                      input#imgWork.form-control-file(type='file' name='background' required='')
+                      p#notiImgWork(style='display: none; color: red') Chưa chọn ảnh nền
+                    .form-group
+                      label Nhóm:
+                      br
+                      .container
+                        if teams.length!=0
+                          //- label Lựa chọn hoặc
+                          select.form-control(name='team_id' id="show")
+                            each team in teams
+                              option=team.name
+                        label Tạo mới
+                        input.form-control(type='text' id="congviec")
+                  .modal-footer
+                    input#addNewWork.btn.btn-primary(type='submit')
+
+          //- #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+          //-   .modal-dialog(role='document')
+          //-     .modal-content
+          //-       .modal-header
+          //-         h5#exampleModalLabel.modal-title Modal title
+          //-         button.close(type='button' data-dismiss='modal' aria-label='Close')
+          //-           span(aria-hidden='true') ×
+          //-       .modal-body
+          //-         | ...
+          //-       .modal-footer
+          //-         button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+          //-         button.btn.btn-primary(type='button') Save changes
+          script(src='/js/home.js')
+          footer.app-footer
+            // Footer ở đây.
+

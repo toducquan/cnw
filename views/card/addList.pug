@@ -1,0 +1,13 @@
+.list-item
+    .list-name.sticky-top
+        form.deleteList(action='/card/deleteList/'+list.id , method='GET')
+            span.spanToInput2=list.list_name
+            button.btn.float-right.delete-list(title='Xóa List này')
+                i.material-icons 
+    .list-card(id="add-card"+list.id)
+    .add-card
+        form.form-add-card(action="/card/newCard" method="POST" enctype="multipart/form-data")
+            input.new-card.form-control(type='text' name='new-card' placeholder='Thêm thẻ mới' autocomplete="off")
+            input.form-control(type='text' name='description' placeholder='Mô tả' style="display: none" autocomplete="off")
+            input.form-control-file(type='file' name='file' style="display: none")
+            button.btn.btn-primary.btn-add-card(type='submit' id=list.id) Thêm

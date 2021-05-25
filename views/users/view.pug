@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title  Profile 
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/sweetalert2@9')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    link(rel='stylesheet', href='/styles/profile.css')
+  body
+    header.nava
+      // <div class="container">
+      .row(style='margin: 0px;')
+        .col.acol1
+          a.btn.btn-info.btn-lg(href='#')
+            i.fas.fa-align-justify
+          img#icon(src='')
+          a.btn.btn-info.btn-lg(href='/home')
+            i.fas.fa-home
+        .col-6.asearch.acol2(style='height: 100%;')
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2.ainput(type='search', placeholder='Search', aria-label='Search')
+            a.btn.btn-info.btn-lg.abutton(href='#')
+              | Search
+        .col.acol2
+          a(href='/users/view/')
+            img.avatar1(src="/"+user.avatar, alt='Avatar')
+          a.btn.btn-info.btn-lg.float-right(href='#')
+            i.fas.fa-bell
+    #profile
+      #avatar-name.center-div
+        #avatar
+          img#myImg.rounded-circle(src="/"+user.avatar, alt='avatar member', style='height: 100px; margin-top:2px; width:100px;')
+          #myModalAvatar.modal-avatar
+            span#close-avatar ×
+            img#img01.modal-content-avatar
+          div(style='display: none')
+            img#update-avatar(style='border-style: double; border-color: #ebebe0; border-radius: 50% ', src='/img/ca.png', title='Đổi Avatar')
+            input#img-upload(type='file', accept='.png, .jpg, .jpeg')
+        h3.member-name(style='font-weight: 10px')
+          span= user.name
+      hr
+      #information.center-div
+        form
+          .form-group
+            label(for='name') Tên hiển thị
+            input#name.form-control(type='text', value=user.name, name='name', disabled='')
+            .invalid-feedback
+          .form-group
+            label(for='description') Lý lịch
+            #description.form(style="min-height: 160px;background-color: #e9ecef;color: #495057;padding: .375rem .75rem;font-size: 1rem;font-weight: 400;line-height: 1.5;border: 1px solid #ced4da;border-radius: .25rem;")
+              p=user.description
+        a(href='/users/getchangeProfile/')
+          button.btn.btn-primary(type='submit') Thay đổi
+    script(src='/js/profile.js')

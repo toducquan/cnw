@@ -1,0 +1,62 @@
+a{
+    color: black;
+}
+
+.container{
+    background-color: #f2f2f2;
+}
+
+.btn-col-2{
+    margin: 5px;
+    width: 100%;
+}
+
+.span-cardname{
+    color: black;
+    font-weight: bold;
+    float: left;
+    margin-top:5px;
+    margin-left: 2px;
+}
+
+.comment{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #e6e6e6;
+    background-color: white;
+    margin: 5px;
+}
+
+#card-name{
+    height: 50px;
+    margin-top: 5px;
+}
+
+#cover-img{
+    background-color: #e6e6e6;
+    background-image:url("/img/card1.jpg");
+    height: 180px;
+    background-size: contain;
+    background-origin: content-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#img-upload{
+    display: none;
+}
+
+#formDeadline{
+    display: none;
+}
+
+#show-deadline{
+    display: none;
+}
+
+#deadline-date, #deadline-time{
+    color: red;
+    margin: 5px;
+}

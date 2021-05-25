@@ -1,0 +1,67 @@
+.card(style='width:auto;' id='card'+card.id)
+    img.card-img-top(src=card.file, alt='Card image' style='width:100%')
+    form.deleteCard(action='/card/deleteCard/'+card.id , method='GET')
+        button.btn.float-right.btn-delete-card(title='Xóa Card này') X
+        .card-body.card-body-center
+            p.card-title(id='cardName'+card.id)=card.name
+            a.stretched-link(href='/card' target='_blank' data-toggle="modal" data-target="#exampleModal"+card.id)
+
+.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' id='exampleModal'+card.id)
+    .modal-dialog.modal-xl(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') ×
+            .modal-body
+                .container(style='padding: 0')
+                    form(class='changeImg' action="/card/changeBgCard/"+card.id ,method='POST' enctype="multipart/form-data")
+                        .cover-img#cover-img(style="background-image: url("+card.file+')')
+                            img.update-avatar(style='border-style: double; border-color: #ebebe0; border-radius: 5px; ' src='/img/ca.png' title='Đổi ảnh bìa')
+                            input.img-upload(type='file', name='file', accept='.png, .jpg, .jpeg')
+                            button.saveCoverImg#saveCoverImg.btn.btn-primary.mt-2(type='submit' style='display: block') Lưu
+                .container(style='margin-top: -5px')
+                    .card-name#card-name
+                        span.spanToInput3.span-cardname=card.name
+                    .row
+                        .col-sm-9
+                            form(action='/card/changeDescription/'+card.id , method='post')
+                                .form-group
+                                    label(for='description')
+                                        i.fas.fa-rainbow
+                                        |  Mô tả
+                                    textarea.description.form-control(rows='5' name='description')=card.description
+                                button.des.btn.btn-primary(type='submit' id='des'+card.id) Lưu
+                            hr
+                            form(action='/card/changeAttachments/'+card.id , method='post' ,enctype="multipart/form-data", style='margin-bottom: 30px')
+                                p
+                                    i.fas.fa-paperclip
+                                    if card.attachments != undefined
+                                        a(href=card.attachments, download='')  Tập đính kèm
+                                    else
+                                        |  Tập đính kèm
+                                .custom-file
+                                    input.customFile.custom-file-input(type='file' name='filename')
+                                    label.custom-file-label(for='customFile')
+                                        if card.attachments != undefined
+                                            span=card.attachments
+                                        else
+                                            | Chọn File
+                                    button.saveFile.btn.btn-primary.mt-2(type='submit') Lưu
+                            hr
+                            p
+                                i.fab.fa-rocketchat
+                                |  Bình luận
+                            .my-comment(id='comment'+card.id)
+                                form.mb-3(action='' method='post')
+                                    textarea.myCmt.form-control(rows='2' placeholder='Viết bình luận...' name='myCmt')
+                                    button.cmt.btn.btn-primary(type='submit' id=card.id) Bình luận
+                            .comment-list
+
+                        .col-sm-3
+                            button.deadline#deadline.btn.btn-primary.btn-col-2
+                                i.far.fa-clock
+                                |  Thêm deadline
+                            .formDeadline#formDeadline.form-group
+                                input.form-control.mt-2(type='date')
+                                input.form-control.mt-2(type='time')
+                                button.saveDeadline#saveDeadline.btn.btn-primary.mt-2(type='submit') Lưu

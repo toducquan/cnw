@@ -1,0 +1,88 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Change Profile 
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/sweetalert2@9')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+    link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')
+    link(rel='stylesheet' href='/styles/profile.css')
+  body.modal-open
+    header.nava
+      // <div class="container">
+      .row(style='margin: 0px;')
+        .col.acol1
+          a.btn.btn-info.btn-lg(href='#')
+            i.fas.fa-align-justify
+          img#icon(src='/img/icon.png')
+          a.btn.btn-info.btn-lg(href='/home')
+            i.fas.fa-home
+        .col-6.asearch.acol2(style='height: 100%;')
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2.ainput(type='search' placeholder='Search' aria-label='Search')
+            a.btn.btn-info.btn-lg.abutton(href='#')
+              | Search
+        .col.acol2
+          a(href='/users/view/')
+            img.avatar1(src="/"+user.avatar, alt='Avatar')
+          a.btn.btn-info.btn-lg.float-right(href='#')
+            i.fas.fa-bell
+    #profile
+      #avatar-name.center-div
+        #avatar
+          img#myImg.rounded-circle(src="/"+user.avatar, alt='avatar member' style='height: 100px; margin-top:2px;width:100px;')
+          #myModalAvatar.modal-avatar
+            span#close-avatar ×
+            img#img01.modal-content-avatar
+          div
+            form(action="/users/changeAvatar/" ,method='POST' enctype="multipart/form-data")
+              img#update-avatar(style='border-style: double; border-color: #ebebe0; border-radius: 50% ' src='/img/ca.png' title='Đổi Avatar')
+              input#img-upload(type='file' name='avatar' accept='.png, .jpg, .jpeg')
+              button#saveAvatar.btn.btn-primary.mt-2(type='submit' style='display: block;') Lưu ảnh
+        h3.member-name(style='font-weight: 10px')
+          span= user.name
+      hr
+      #information.center-div
+        form.needs-validation(action="/users/changeInfo/" method='POST' novalidate='')
+          .form-group
+            label(for='name') Tên hiển thị
+            input#name.form-control(type='text', value=user.name, name='name' required='')
+            .invalid-feedback
+          .form-group
+            label(for='description') Lý lịch
+            input#description.form-control(type='text' name='description',value=user.description, style='height: 150px; word-wrap: break-word;')
+          button.btn.btn-primary(type='submit') Lưu thay đổi
+      hr
+      #more-action.center-div
+        button.btn.btn-primary(type='button' data-toggle='modal' data-target='#change-password') Đổi mật khẩu
+        #change-password.modal
+          .modal-dialog
+            .modal-content
+              .modal-header
+                h4.modal-title Đổi mật khẩu
+                button.close(type='button' data-dismiss='modal') ×
+              .modal-body
+                if errors
+                  each error in errors
+                    .alert.alert-danger= error
+                form(action="/users/changePass/" method='POST' name='changePass' onsubmit='return checkPass()')
+                  .form-group
+                    label(for='password') Mật khẩu hiện tại
+                    input#password.form-control(type='password' placeholder='Mật khẩu hiện tại' name='password')
+                    .invalid-feedback
+                  .form-group
+                    label(for='new-pass') Mật khẩu mới
+                    input#new-pass.form-control(type='password' placeholder='Mật khẩu mới' name='newPass')
+                    .invalid-feedback
+                  .form-group
+                    label(for='re-pass') Nhập lại mật khẩu
+                    input#re-pass.form-control(type='password' placeholder='Mật khẩu mới' name='rePass')
+                  button.btn.btn-primary(type='submit') Lưu thay đổi
+        a.btn.btn-primary(href="/auth/logout" type='button' style="margin-left:10px;") Đăng xuất
+    script(src='/js/changeProfile.js')
